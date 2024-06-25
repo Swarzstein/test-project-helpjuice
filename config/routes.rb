@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'analytics', to: 'analytics#index'
   resources :searches, only: [:index, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'login', to: 'sessions#new', as: 'login'

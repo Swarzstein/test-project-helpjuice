@@ -13,3 +13,144 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 0 1vw;
+  text-align: center;
+  height: 4vh;
+  width: 98vw;
+  min-height: 30px;
+  display: flex;
+  position: fixed;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 98vw;
+}
+
+nav ul {
+  list-style-type: none;
+  display: flex;
+}
+  
+nav ul li {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  height: 4vh;
+  min-height: 30px;
+  padding: 0 1dvw;
+}
+
+nav ul li a:hover {
+  background-color: #a81515;
+}
+
+nav ul li a.active {
+  color: #4CAF50; /* Change the color to indicate active state */
+  font-weight: bold;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding: 0 5vw;
+  gap: 7vh;
+  position: relative;
+  top: 4vh;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2vh;
+}
+
+.login-button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 1vh 2vw;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+
+.container h1 {
+  font-size: 4em;
+}
+
+.flex-row-container {
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flex-row-container > div {
+  width: 40vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.li-item {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  width: 100% !important;
+  height: 3vh !important;
+  padding: 1vh 0 !important;
+}
+
+#top-searches {
+  gap: 5vh;
+  font-size: 4vh;
+  height: 58vh;
+  padding: 3vh 0;
+  justify-content: flex-start;
+}
+
+#top-searches ul {
+  width: 50%;
+}
+
+#top-searches ul li {
+  list-style: number;
+}
+
+#searches-chart {
+  width: 50vw;
+}
+
+#chart-1 {
+  height: 65vh !important;
+}
+
+#search-results li {
+  list-style-type: none;
+  font-size: 2em;
+}
