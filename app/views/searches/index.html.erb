@@ -1,0 +1,13 @@
+
+<h1>Welcome user <%= @current_user.id %> (<%= @current_user.name %>)</h1>
+<%= link_to 'Logout', logout_path, class:"btn btn-outline-danger", 'data-turbo-method': :delete %>
+
+<%= form_with(url: searches_path, method: :get, remote: true, id: "search-form") do |form| %>
+<!-- the text_field_tag must have id="search-input" -->
+
+  <%= text_field_tag :query, params[:query], placeholder: "Search...", id: "search-input", autocomplete: "off" %>
+<% end %>
+
+<p>Find me in app/views/searches/index.html.erb</p>
+
+<%= javascript_include_tag 'liveSearch.js'%>
