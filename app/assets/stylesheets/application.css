@@ -67,13 +67,19 @@ nav ul li a.active {
   font-weight: bold;
 }
 
+nav div {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 90vh;
-  padding: 0 5vw;
+  padding: 3vh 5vw;
   gap: 7vh;
   position: relative;
   top: 4vh;
@@ -85,18 +91,27 @@ nav ul li a.active {
   justify-content: center;
   align-items: center;
   gap: 2vh;
+  padding: 5vh;
+}
+
+.search-container h1 {
+  font-size: 4em;
 }
 
 .login-button {
   background-color: #333;
   color: white;
   border: none;
-  padding: 1vh 2vw;
+  padding: 2vh 3vw;
   font-size: 1.5em;
   cursor: pointer;
 }
 
-.container h1 {
+.login-welcome {
+  font-size: 4em;
+}
+
+.container > h1 {
   font-size: 4em;
 }
 

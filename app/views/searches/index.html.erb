@@ -1,6 +1,6 @@
 <div class="container">
   <div class="search-container">
-    <h1>Welcome <%= @current_user.name %></h1>
+    <h1>Search for a product</h1>
     
       <%= text_field_tag :query, params[:query], placeholder: "Search...", id:  "search-input", autocomplete: "off" %>
       <div id="search-results">
@@ -11,6 +11,7 @@
         </ul>
       </div>
 
+    <%= @last_search %>   
     <%= javascript_include_tag 'liveSearch.js'%>
   </div>
 </div>

@@ -3,5 +3,8 @@
     <li><%= link_to 'Search', root_path, class: "nav-link active" %></li>
     <li><%= link_to 'Analytics', analytics_path, class: "nav-link" %></li>
   </ul>
-  <%= link_to 'Logout', logout_path, 'data-turbo-method': :delete %>
+  <div>
+    <span>Welcome, <%= @current_user.name %></span>
+    <%= link_to 'Logout', logout_path, 'data-turbo-method': :delete %>
+  </div>
 </nav>
