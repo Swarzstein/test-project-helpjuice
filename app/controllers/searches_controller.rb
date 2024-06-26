@@ -1,7 +1,6 @@
 class SearchesController < ApplicationController
   before_action :require_user
   before_action :set_current_user
-  before_action :initial_search, only: [:index]
 
   def index
     @searches = Search.where(user_id: @current_user.id).order(created_at: :desc).limit(10)
@@ -25,10 +24,6 @@ class SearchesController < ApplicationController
   end
 
   private
-
-  def initial_search
-    @last_search = nil
-  end
 
   def set_current_user
     @current_user = current_user

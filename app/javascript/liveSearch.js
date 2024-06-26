@@ -1,8 +1,13 @@
+// let capitalizeAll = (str) => {
+//   return str.replace(/\b\w/g, (char) => char.toUpperCase());
+// };
+
 document.addEventListener('turbo:load', () => {
   const input = document.querySelector('#search-input');
   input.addEventListener('keyup', (e) => {
     const query = e.target.value.toLowerCase();
     const searchList = document.querySelector('#search-list');
+    const csrfTokenMeta = document.querySelector('[name="csrf-token"]');
 
     clearTimeout(e.target.delay);
     e.target.delay = setTimeout(function() {
@@ -10,7 +15,7 @@ document.addEventListener('turbo:load', () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content
+          'X-CSRF-Token': csrfTokenMeta ? csrfTokenMeta.content : 'undefined-token'
         },
         body: JSON.stringify({ query })
       })
@@ -18,6 +23,7 @@ document.addEventListener('turbo:load', () => {
       .then((data) => {
         console.log(data);
         let newSearch = `<li>${data.search}</li>`;
+        // let newSearch = `<li>${capitalizeAll(data.search)}</li>`;
         searchList.insertAdjacentHTML('afterbegin', newSearch);
         if (searchList.children.length > 10 && query !== "") {
           searchList.lastElementChild.remove();
