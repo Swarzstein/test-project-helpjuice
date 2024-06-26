@@ -1,0 +1,10 @@
+<nav>
+  <ul>
+    <li><%= link_to 'Search', root_path, class: "nav-link active" %></li>
+    <li><%= link_to 'Analytics', analytics_path, class: "nav-link" %></li>
+  </ul>
+  <div>
+    <span>Welcome, <%= @current_user.name %></span>
+    <%= link_to 'Log out', logout_path, 'data-turbo-method': :delete, id: "logout-link" %>
+  </div>
+</nav>

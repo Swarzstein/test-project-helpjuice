@@ -3,23 +3,24 @@ class SearchesController < ApplicationController
   before_action :set_current_user
 
   def index
-    # @searches = Search.where(user_id: @current_user.id)
-    # @global_searches = Search.all
+    @searches = Search.where(user_id: @current_user.id).order(created_at: :desc).limit(10)
   end
 
   def create
-    # @last_search = last_search
-    # @search = Search.new(search_params)
-    # if @last_search.nil? || @search.query.include?(@last_search.query) == false
-    #   if @search.query != ""
-    #     @search.user_id = @current_user.id	
-    #     @search.save
-    #     @last_search = @search
-    #   end
-    # else
-    #   @last_search.query = @search.query
-    #   @last_search.save
-    # end
+    @last_search = last_search
+    @search = Search.new(search_params)
+    if @last_search.nil? || @search.query.include?(@last_search.query) == false || @search.query == @last_search.query
+      if @search.query != ""
+        @search.user_id = @current_user.id	
+        @search.save
+      else
+        @last_search = nil
+      end
+    else
+      @last_search.query = @search.query
+      @last_search.save
+    end
+    render json: { search: @search.query }
   end
 
   private

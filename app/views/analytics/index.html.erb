@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Analytics</h1>
+  <div class="flex-row-container">
+    <div id="top-searches">
+      <h3>Top Searches</h3>
+      <ul>
+          <% @top_searches.each do |query, count| %>
+              <li>
+                <div class="li-item">
+                  <div><%= query.capitalize %></div>
+                  <div><%= count %></div>
+                </div>
+              </li>
+          <% end %>
+      </ul>
+    </div>
+    <div id="searches-chart">
+      <!-- text input to filter the searches by keyword -->
+      <%= form_with(url: analytics_path, method: :get, id: "filter-form") do |form| %>
+          <%= text_field_tag :query, params[:query], placeholder: "Searches filter", id: "filter-input", autocomplete: "off" %>
+          <!-- submit button -->
+          <%= submit_tag "Filter", id: "filter-submit" %>
+      <% end %>
+      <%= column_chart @filtered_searches %>
+    </div>
+  </div>
+</div>

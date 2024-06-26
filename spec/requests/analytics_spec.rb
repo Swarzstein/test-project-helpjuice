@@ -1,13 +1,12 @@
 require 'rails_helper'
-require 'spec_helper'
 
-RSpec.describe "Searches", type: :request do
+RSpec.describe "Analytics", type: :request do
   let!(:current_user) { User.create(name: 'Akai', email: 'akai123@gmail.com') }
 
-  describe "GET /index" do
+  describe "GET /analytics" do
     context "when user is not logged in" do
-      it "returns http redirect when user is not logged in" do
-        get searches_path
+      it "returns http redirect" do
+        get analytics_path
         expect(response).to have_http_status(:redirect)
       end
     end
@@ -17,8 +16,8 @@ RSpec.describe "Searches", type: :request do
         post login_path
       end
 
-      it "returns http success when user is logged in" do
-        get searches_path
+      it "returns http success" do
+        get analytics_path
         expect(response).to have_http_status(:success)
       end
     end

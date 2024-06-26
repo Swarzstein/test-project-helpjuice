@@ -12,6 +12,9 @@
 
   <body>
     <%if @current_user%>
+      <header>
+        <%= render 'layouts/navbar' %>
+      </header>
     <%end%>
     <%= yield %>
   </body>
